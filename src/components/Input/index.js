@@ -5,7 +5,7 @@ import { Container, TInput } from './styles';
 
 Icon.loadFont();
 
-function Input({ style, icon, ...rest}, ref) {
+function Input({ style, icon, ...rest }, ref) {
   return (
 
     <Container style={style}>

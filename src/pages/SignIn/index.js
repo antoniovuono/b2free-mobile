@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 //import { Text } from 'react-native';
 
 import BackgroundInitial from '../../components/BackgroundInitial';
@@ -15,8 +15,12 @@ import {   Container,
   Text, } from './styles';
 
 export default function SignIn({ navigation }) {
-  return (
 
+  const passwordRef = useRef();
+
+  function handleSubmit() {}
+
+  return (
   <BackgroundInitial>
     <Container>
       <Text>B2FREE</Text>
@@ -27,15 +31,19 @@ export default function SignIn({ navigation }) {
             autoCorrect={false}
             autoCaptalize="none"
             placeholder="Digite seu email"
+            returnKeyType="next"
+            onSubmitEditting={() => passwordRef.current.focus()}
           />
 
           <FormInput
             icon="lock-outline"
             secureTextEntry
             placeholder="Sua senha secreta"
+            returnKeyType="send"
+            onSubmitEditing={handleSubmit}
           />
 
-          <SubmitButton onPress={() => {}}>Acessar</SubmitButton>
+          <SubmitButton onPress={() => navigation.navigate('Dashboard')}>Acessar</SubmitButton>
 
           <SignLink onPress={() => navigation.navigate('SignUp')}>
             <SignLinkText>Criar conta gratuita</SignLinkText>
